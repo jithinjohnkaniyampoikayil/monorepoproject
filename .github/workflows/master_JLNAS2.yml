@@ -34,4 +34,4 @@ jobs:
           app-name: "JLNAS2"
           slot-name: "production"
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed05ce461f964908ab4303023159116a }}
-          package: .
+          package: ./server/node/testapiapp
