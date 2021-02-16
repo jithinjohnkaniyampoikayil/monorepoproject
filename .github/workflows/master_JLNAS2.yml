@@ -21,6 +21,6 @@ jobs:
         with:
           node-version: "14.x"
 
-      - name: Run a one-line script
-          run: |
-            mkdir dist
+      - name: npm install, build, and test
+        run: |
+          mkdir dist
