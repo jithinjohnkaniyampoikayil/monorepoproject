@@ -33,5 +33,5 @@ jobs:
         with:
           app-name: "JLNAS1"
           slot-name: "production"
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_febc6a9da5964217b160e12fda755db5 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_70e5c184a2d64227b9f3b37046625b02 }}
           package: ./ui/angularui/dist/webapp
