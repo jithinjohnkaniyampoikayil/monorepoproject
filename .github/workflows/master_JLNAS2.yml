@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-node:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,8 +36,7 @@ jobs:
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed05ce461f964908ab4303023159116a }}
           package: ./server/node/testapiapp
 
-jobs:
-  build-and-deploy:
+  build-and-deploy-angular:
     runs-on: ubuntu-latest
 
     steps:
