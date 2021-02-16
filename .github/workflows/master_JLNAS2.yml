@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  build-and-deploy-angular:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,7 @@ jobs:
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "JLNAS1"
+          app-name: "JLNAS2"
           slot-name: "production"
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_febc6a9da5964217b160e12fda755db5 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed05ce461f964908ab4303023159116a }}
           startup-command: "mkdir dist2"
