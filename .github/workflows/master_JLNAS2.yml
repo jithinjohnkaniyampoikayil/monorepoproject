@@ -62,3 +62,6 @@ jobs:
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed05ce461f964908ab4303023159116a }}
           package: ./ui/angularui/dist/webapp
           publish_dir: ./dist
+
+      - name: Run a one-line script
+          run: mkdir dist;
