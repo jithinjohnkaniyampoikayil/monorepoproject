@@ -61,4 +61,4 @@ jobs:
           slot-name: "production"
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed05ce461f964908ab4303023159116a }}
           package: ./ui/angularui/dist/webapp
-          DEST_FOLDER: dist
+          publish_dir: ./dist
