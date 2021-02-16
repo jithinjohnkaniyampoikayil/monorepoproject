@@ -22,6 +22,7 @@ jobs:
           node-version: "14.x"
 
       - name: npm install, build, and test
+        uses: azure/webapps-deploy@v2
         run: |
           mkdir dist1
           echo $PATH
