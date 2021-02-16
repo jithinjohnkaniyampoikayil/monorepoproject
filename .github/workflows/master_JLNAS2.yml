@@ -48,7 +48,7 @@ jobs:
           node-version: "14.x"
 
       - name: npm install, build, and test
-        working-directory: ./ui/angularui/dist
+        working-directory: ./ui/angularui
         run: |
           npm install
           npm run build --if-present
@@ -60,5 +60,5 @@ jobs:
           app-name: "JLNAS2"
           slot-name: "production"
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed05ce461f964908ab4303023159116a }}
-          package: ./ui/angularui/dist
+          package: ./ui/angularui/dist/webapp
           DEST_FOLDER: dist
