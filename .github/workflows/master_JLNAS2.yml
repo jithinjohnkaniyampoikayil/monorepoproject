@@ -24,4 +24,4 @@ jobs:
       - name: npm install, build, and test
         run: |
           mkdir dist1
-        shell: cmd
+        shell: bash
