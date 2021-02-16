@@ -22,7 +22,7 @@ jobs:
           node-version: "14.x"
 
       - name: npm install, build, and test
-        working-directory: ./ui/angularui/dist/webapp
+        working-directory: ./ui/angularui
         run: |
           npm install
           npm run build --if-present
