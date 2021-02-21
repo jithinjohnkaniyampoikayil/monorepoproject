@@ -22,7 +22,7 @@ jobs:
           node-version: "14.x"
 
       - name: npm install, build, and test
-        working-directory: ./ui/angularui
+        working-directory: ./ui/ExpenseTracker
         run: |
           npm install
           npm run build --if-present
@@ -34,4 +34,4 @@ jobs:
           app-name: "JLNAS1"
           slot-name: "production"
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_36698c40226e4cab8d1b9ffb398bc0fa }}
-          package: ./ui/angularui/dist/webapp
+          package: ./ui/ExpenseTracker/dist/ExpenseTracker
