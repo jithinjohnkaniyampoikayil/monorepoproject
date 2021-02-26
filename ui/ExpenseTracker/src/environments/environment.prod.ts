@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://my-prod-url',
+  apiUrl: 'https://jlnas2.azurewebsites.net/expense',
+  isCsvReadMode: true,
 };

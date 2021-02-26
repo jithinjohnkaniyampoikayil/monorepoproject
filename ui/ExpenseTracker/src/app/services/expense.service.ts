@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Expense } from '../models/expense';
 
 @Injectable({
@@ -11,10 +12,14 @@ export class ExpenseService {
   public expense = new BehaviorSubject<Expense[]>([]);
   public groupedExpense = new BehaviorSubject<Expense[]>([]);
   constructor(private http: HttpClient) {
-    this.getExpenseGrouped();
+    if (environment.isCsvReadMode) {
+      this.getExpenseGroupedCsv();
+    } else {
+      this.getExpenseGroupedApi();
+    }
   }
 
-  getExpenseGrouped() {
+  getExpenseGroupedCsv() {
     let expense: Expense[] = [];
     this.http
       .get('assets/expense.csv', { responseType: 'text' })
@@ -53,10 +58,31 @@ export class ExpenseService {
       .subscribe();
   }
 
-  getGrouped(): Observable<any> {
-    return of(this.groupedExpense);
-  }
-  getFull(): Observable<any> {
-    return of(this.expense);
+  getExpenseGroupedApi() {
+    let expense: Expense[] = [];
+    this.http
+      .get(environment.apiUrl, { responseType: 'json' })
+      .pipe(
+        map((data: any) => {
+          expense = data;
+          this.expense.next(data);
+          var helper = {};
+          this.groupedExpense.next(
+            expense.reduce((r, o: any) => {
+              var key = o.category.toString();
+
+              if (!helper[key]) {
+                helper[key] = Object.assign({}, o); // create a copy of o
+                r.push(helper[key]);
+              } else {
+                helper[key].amount += o.amount;
+              }
+
+              return r;
+            }, [])
+          );
+        })
+      )
+      .subscribe();
   }
 }
