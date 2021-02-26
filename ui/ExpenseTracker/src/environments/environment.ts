@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://my-prod-url'
+  apiUrl: 'http://localhost:3000/expense',
+  isCsvReadMode: false,
 };
 
 /*
